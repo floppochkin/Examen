@@ -22,7 +22,7 @@ if (!preg_match("/^[а-яёА-ЯЁs]+$/u", $fio)) {
 
 }
 
-if (!preg_match("/^\+7\d{10}$/", $phone)) {
+if (!preg_match("/^[а-яёА-ЯЁs]+$/u", $phone)) {
     $_SESSION['ERROR_MESSAGE'] = 'ошибка в телефоне';
     header("Location: ../reg.php");
     exit();
