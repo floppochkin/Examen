@@ -27,7 +27,8 @@
                     </div>
                 </div>
                 <div class="btn_submit">
-                    <button type='submit'>Зарегестрироваться!</button>
+                    <button type='submit'>Войти</button>
+                    <a href="reg.php">Регистрация</a>
                 </div>
                 <?php
                     if(isset($_SESSION['ERROR_MESSAGE'])){

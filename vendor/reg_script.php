@@ -8,10 +8,10 @@ $email = $_POST['email'];
 $login = $_POST['login'];
 $pass = password_hash($_POST['pass'],PASSWORD_DEFAULT);
 
-$sql = $pdo->prepare('INSERT INTO `Users` (`FIO`, `TELEPHONE`, `EMAIL`, `LOGIN`, `PASSWORD`) 
-VALUES (?,?,?,?,?)');
+$sql = $pdo->prepare('INSERT INTO `users` (`ID`, `FIO`, `TELEPHONE`, `EMAIL`, `LOGIN`, `PASSWORD`, `ADMIN`) 
+VALUES (?,?,?,?,?,?,?)');
 
-$sql2 = $pdo->prepare('SELECT `login` FROM `Users` WHERE login = ? LIMIT 1');
+$sql2 = $pdo->prepare('SELECT `login` FROM `users` WHERE login = ? LIMIT 1');
 $sql2->execute([$login]);
 $result = $sql2->fetch(PDO::FETCH_ASSOC);
 print_r($result);
@@ -35,7 +35,7 @@ if($result){
     exit();
 }
 if($sql){
-    $sql->execute([$fio, $phone, $email, $login, $pass]);
+    $sql->execute([NULL, $fio, $phone, $email, $login, $pass, 0]);
     header("Location: ../auto.php");
 }else{
     header("Location: ../reg.php");

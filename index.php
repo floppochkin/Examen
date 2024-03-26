@@ -1,3 +1,11 @@
+<?php
+    if(!isset($_SESSION["user"])) {
+        header("Location: auto.php");
+    }
+    if(isset($_SESSION["admin"])) {
+        header("Location: admin.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +15,11 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div class="site">
+        <header>
+            <a href="#">Написать жалобу</a>
+            <a href="vendor/logout_script.php">Выйти</a>
+        </header>
+    </div>
 </body>
 </html>

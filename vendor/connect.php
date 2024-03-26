@@ -2,7 +2,7 @@
     $password = '';
     $login = 'root';
     $host = 'localhost';
-    $db = 'Examen3';
+    $db = 'violations.net.db';
     $dbh='mysql:host='.$host.';dbname='.$db;
     $pdo = new PDO($dbh,$login,$password);
     
