@@ -6,7 +6,7 @@ $fio = $_POST['fio'];
 $phone = $_POST['phone'];
 $email = $_POST['email'];
 $login = $_POST['login'];
-$pass = $_POST['pass'];
+$pass = password_hash($_POST['pass'],PASSWORD_DEFAULT);
 
 $sql = $pdo->prepare('INSERT INTO `Users` (`FIO`, `TELEPHONE`, `EMAIL`, `LOGIN`, `PASSWORD`) 
 VALUES (?,?,?,?,?)');
