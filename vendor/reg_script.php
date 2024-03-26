@@ -15,14 +15,14 @@ $sql2 = $pdo->prepare('SELECT `login` FROM `Users` WHERE login = ? LIMIT 1');
 $sql2->execute([$login]);
 $result = $sql2->fetch(PDO::FETCH_ASSOC);
 print_r($result);
-if (!preg_match("/^[а-яёА-ЯЁs]+$/u", $fio)) {
+if (!preg_match("/^[а-яёА-ЯЁ ]+$/u", $fio)) {
     $_SESSION['ERROR_MESSAGE'] = 'ошибка в фио';
     header("Location: ../reg.php");
     exit();
 
 }
 
-if (!preg_match("/^[а-яёА-ЯЁs]+$/u", $phone)) {
+if (!preg_match("/^\+7\d{10}$/", $phone)) {
     $_SESSION['ERROR_MESSAGE'] = 'ошибка в телефоне';
     header("Location: ../reg.php");
     exit();
