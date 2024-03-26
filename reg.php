@@ -1,3 +1,6 @@
+<?php
+    session_start()
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +22,7 @@
                         <label for='fio'>Ваше фио</label>
                     </div>
                     <div class="btn_phone">
-                        <input type="tele" name='phone' placeholder="Введите ваш телефон" />
+                        <input type="text" name='phone' placeholder="Введите ваш телефон" />
                         <label for='phone'>Ваш телефон</label>
                     </div>
                     <div class="btn_email">
@@ -38,6 +41,12 @@
                 <div class="btn_submit">
                     <button type='submit'>Зарегестрироваться!</button>
                 </div>
+                <?php
+                    if(isset($_SESSION['ERROR_MESSAGE'])){
+                        echo '<p>'.$_SESSION['ERROR_MESSAGE'].'</p>';
+                    }
+                    unset($_SESSION['ERROR_MESSAGE'])
+                ?>
             </form>
         </div>
     </div>
