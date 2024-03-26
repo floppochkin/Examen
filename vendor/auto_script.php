@@ -6,31 +6,13 @@ require_once 'connect.php';
 $login = $_POST['login'];
 $pass = $_POST['pass'];
 
-$sql = $pdo->prepare('INSERT INTO `Users` (`FIO`, `TELEPHONE`, `EMAIL`, `LOGIN`, `PASSWORD`) 
-VALUES (?,?,?,?,?)');
+$sql = $pdo->prepare("SELECT `LOGIN`, `PASSWORD` FROM `User` WHERE LOGIN = ? AND PASSWORD = ?");
+$sql->execute([$login,$pass]);
 
-$sql2 = $pdo->prepare('SELECT `login` FROM `Users` WHERE login = ? LIMIT 1');
-$sql2->execute([$login]);
-$result = $sql2->fetch(PDO::FETCH_ASSOC);
-print_r($result);
-if (!preg_match("/^[а-яёА-ЯЁ ]+$/u", $fio)) {
-    $_SESSION['ERROR_MESSAGE'] = 'ошибка в фио';
-    header("Location: ../reg.php");
-    exit();
-
-}
-
-if (!preg_match("/^\+7\d{10}$/", $phone)) {
-    $_SESSION['ERROR_MESSAGE'] = 'ошибка в телефоне';
-    header("Location: ../reg.php");
-    exit();
-    #header("Location: ../reg.php");
-}
-
-if($result){
-    $_SESSION['ERROR_MESSAGE'] = 'Такой логин уже существует';
-    header("Location: ../reg.php");
+$user = $sql->fetch(PDO::FETCH_ASSOC);
+if($user && password_verify($pass,$user['PASSWORD'])){
+    header('Location: ../admin.php');
+}else{
+    header('auto.php');
     exit();
 }
-
-$sql->execute([$fio, $phone, $email, $login, $pass]);

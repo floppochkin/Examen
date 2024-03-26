@@ -18,11 +18,11 @@
             <form action="vendor/auto_script.php" method="POST">
                 <div class="btns">
                     <div class="btn_login">
-                        <input type="text" name='login' placeholder="Введите ваш логин" />
+                        <input type="text" name='login' placeholder="Введите ваш логин" required/>
                         <label for='login'>Ваш логин</label>
                     </div>
                     <div class="btn_password">
-                        <input type="password" name='pass' placeholder="Введите ваш пароль" />
+                        <input type="password" name='pass' placeholder="Введите ваш пароль" required/>
                         <label for='password'>Ваш пароль</label>
                     </div>
                 </div>
