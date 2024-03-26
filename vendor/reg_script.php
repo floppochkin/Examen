@@ -34,5 +34,10 @@ if($result){
     header("Location: ../reg.php");
     exit();
 }
+if($sql){
+    $sql->execute([$fio, $phone, $email, $login, $pass]);
+    header("Location: ../auto.php");
+}else{
+    header("Location: ../reg.php");
+}
 
-$sql->execute([$fio, $phone, $email, $login, $pass]);

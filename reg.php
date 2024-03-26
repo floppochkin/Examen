@@ -18,23 +18,23 @@
             <form action="vendor/reg_script.php" method="POST">
                 <div class="btns">
                     <div class="btn_fio">
-                        <input type="text" name='fio' placeholder="Введите ваше ФИО" />
+                        <input type="text" name='fio' placeholder="Введите ваше ФИО" required />
                         <label for='fio'>Ваше фио</label>
                     </div>
                     <div class="btn_phone">
-                        <input type="text" name='phone' placeholder="Введите ваш телефон" />
+                        <input type="text" name='phone' placeholder="Введите ваш телефон" required />
                         <label for='phone'>Ваш телефон</label>
                     </div>
                     <div class="btn_email">
-                        <input type="email" name='email' placeholder="Введите вашу почту" />
+                        <input type="email" name='email' placeholder="Введите вашу почту" required />
                         <label for='email'>Ваша почта</label>
                     </div>
                     <div class="btn_login">
-                        <input type="text" name='login' placeholder="Введите ваш логин" />
+                        <input type="text" name='login' placeholder="Введите ваш логин" required />
                         <label for='login'>Ваш логин</label>
                     </div>
                     <div class="btn_password">
-                        <input type="password" name='pass' placeholder="Введите ваш пароль" />
+                        <input type="password" name='pass' placeholder="Введите ваш пароль" required />
                         <label for='password'>Ваш пароль</label>
                     </div>
                 </div>
